@@ -1,0 +1,23 @@
+public class trace{
+    public static void main(String[] args){
+        int x = -1, i = 2, t = 6;
+        double k = 4.5;
+        boolean flag = true;
+        int sum = 0;
+        while(true){
+            i++;
+            if(flag){
+                sum+= x*(t%i + 4*(int)k);
+            }
+            else{
+                sum+= x*(t%i + 6*(int)k);
+            }
+            x = x*(-1);
+            flag = !flag;
+            System.out.println(sum);
+            if(i%7 == 0){
+            break;
+            }
+        }
+    }
+}

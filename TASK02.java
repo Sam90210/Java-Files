@@ -1,0 +1,44 @@
+public class TASK02{
+    public static void main(String[]args)
+    {
+        showDiamond(10);
+    }
+    
+            public static void showDots(int num)
+            {//A
+        for(int i=0; i<num; i++)
+        {
+            System.out.print(".");
+        }
+    }
+            
+    public static void show_palindrome(int num)
+    {//B
+        for(int i=1; i<=num; i++)
+        {
+            System.out.print(i);
+        }
+        for(int j=num-1; j>0; j--)
+        {
+            System.out.print(j);
+        }
+    }
+    
+    public static void showDiamond(int n0)
+    {//C
+        for(int i=1; i<=n0; i++)
+        {
+            showDots(n0-i);
+            show_palindrome(i);
+            showDots(n0-i);
+            System.out.println();
+        }
+        for(int j=n0-1; j>0; j--)
+        {
+            showDots(n0-j);
+            show_palindrome(j);
+            showDots(n0-j);
+            System.out.println();
+        }
+    }
+}

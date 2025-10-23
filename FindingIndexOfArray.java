@@ -1,0 +1,28 @@
+//tas2
+import java.util.Scanner;
+public class FindingIndexOfArray{
+    public static void main(String[] args){
+         Scanner sc = new Scanner(System.in);
+         System.out.println("Enter the index no. of array:");
+         int no = sc.nextInt();
+         int[] nig = new int[no];
+         
+          System.out.println("Enter numbers in the indexes:");
+          for(int i=0; i<nig.length; i++){
+              nig[i] = sc.nextInt();
+          }
+          System.out.println("Enter the number you want to search:");
+          int search = sc.nextInt();
+          boolean flag = false;
+          for(int i=0; i<nig.length; i++){
+              if(nig[i] == search){
+                 System.out.println(search+" is at index "+i);
+                 flag = true;
+                 break;
+              }
+          }
+          if(!flag){
+          System.out.println("Element not found");
+          }
+    }
+}

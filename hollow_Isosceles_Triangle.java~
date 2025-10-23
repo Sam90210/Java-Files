@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class hollow_Isosceles_Triangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter num: ");
+        int num = sc.nextInt();
+
+        // Loop through rows
+        for(int i = 1; i <= num; i++) {
+            // Leading spaces
+            for(int s = 1; s <= num - i; s++) {
+                System.out.print(" ");
+            }
+
+            if(i==1) {
+                // Top row: only "1"
+                System.out.print("1");
+            } 
+            else if(i==num) {
+                // Bottom row: full sequence
+                for(int j=1; j <= 2*num-1; j++) {
+                    System.out.print(j);
+                }
+            }
+            else{
+                // Middle rows: first number
+                System.out.print("1");
+                // Hollow spaces
+                for(int k=1; k <= 2*i-3; k++) {
+                    System.out.print(" ");
+                }
+                // Last number
+                System.out.print(2*i-1);
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}

@@ -1,0 +1,35 @@
+//taks3
+public class Double_Max_MinAndSum{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the length:");
+        int LoA = sc.nextInt();
+        double[] arr = new double[LoA];
+        System.out.println("Enter the numbers:");
+        for(int i=0; i<LoA; i++){
+            arr[i] = sc.nextDouble();
+        }
+        double max = arr[0];
+        int maxIndex = 0;
+        double min = arr[0];
+        int minIndex = 0;
+        double sum = 0;
+
+        for(int i = 0; i < LoA; i++){
+            if(arr[i]>max){
+                max = arr[i];
+                maxIndex = i;
+            }
+            if(arr[i]<min){
+                min = arr[i];
+                minIndex = i;
+            }
+            sum += arr[i];
+        }
+        double average = sum/LoA;
+        System.out.println("Maximum element " + max + " found at index " + maxIndex);
+        System.out.println("Minimum element " + min + " found at index " + minIndex);
+        System.out.println("Summation: " + sum);
+        System.out.printf("Average: %.2f\n", average);
+    }
+}

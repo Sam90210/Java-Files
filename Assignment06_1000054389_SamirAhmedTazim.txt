@@ -1,0 +1,127 @@
+import java.util.Scanner;
+public class treasure{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the unlocking phrase:");
+        String unlock = sc.nextLine();
+        
+        int vCount=0, cCount=0;
+        for(int i=0; i<=unlock.length(); i++){
+            char cha = unlock.charAt(i);
+            if((cha>='a' && cha<='z')|| (cha>='A' && cha<='Z')){
+                if(cha=='a' || cha=='e' || cha=='i' || cha=='o' || cha=='u' || cha=='A'|| cha=='E' || cha=='I' || cha=='O' || cha=='U'){
+                    vCount++;
+                }
+                else{
+                    cCount++;
+                }
+            }  
+        }
+        
+        if(vCount>0 && cCount>0 && vCount%3==0 && cCount%5==0){
+            System.out.print("AARR! Me Plunder!!");
+        }
+        else{
+            System.out.print("Blimey! No Plunder!!");
+        }
+    }
+}
+
+
+
+import java.util.Scanner;
+public class CommonCancellation{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String st1 = sc.nextLine();
+        String st2 = sc.nextLine();
+        String result = "";
+        for(int i=0; i<st1.length(); i++){
+            char ch1 = st1.charAt(i);
+            boolean flag = false;
+            for(int j=0; j<st2.length(); j++){
+                if(ch1==st2.charAt(j)){
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag){
+                result += (char)(ch1-32);
+            }
+        }
+        for(int i = 0; i<st2.length(); i++){
+            char ch2 = st2.charAt(i);
+            boolean flag = false;
+            for(int j=0; j<st1.length(); j++){
+                if(ch2==st1.charAt(j)) {
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag) 
+            {
+                result = result + (char)(ch2-32); 
+            }
+        }
+        System.out.println(result);
+    }
+}
+
+
+import java.util.Scanner;
+import java.util.Scanner;
+public class formattingText{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String st1 = sc.nextLine();
+        
+        String result ="";
+        
+        boolean upper = false;
+        
+        for(int i=0; i<st1.length(); i++){
+        char ch = st1.charAt(i);
+        if((ch>='a' && ch<='z') || (ch>='A' && ch<='Z')) {
+                if(upper) {
+                    if(ch>='a' && ch<='z') {
+                        ch = (char)(ch-32);
+                    }
+                }
+                else{
+                    if(ch>='A' && ch<='Z') {
+                        ch = (char)(ch+32);
+                    }
+                }
+                result = result+ch;
+                upper = !upper;
+            } 
+             else{
+                result = result+ch;
+             }
+        }
+        System.out.print(result);
+    }
+}
+
+
+
+
+import java.util.Scanner;
+public class  validityCheck{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String Uname = sc.nextLine();
+        String Pass = sc.nextLine();
+        boolean validCheck = false;
+        
+        for(int i=0; i<=Pass.length()-Uname.length(); i++){
+            boolean match = true;
+            for(int j=0; j<Uname.length(); j+ +){
+                if(Pass.charAt){}
+            }
+        }
+    }
+}
+
+
+

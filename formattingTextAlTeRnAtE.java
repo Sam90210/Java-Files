@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class formattingTextAlTeRnAtE{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String st1 = sc.nextLine();
+        
+        String result ="";
+        
+        boolean upper = false;
+        
+        for(int i=0; i<st1.length(); i++){
+        char ch = st1.charAt(i);
+        if((ch>='a' && ch<='z') || (ch>='A' && ch<='Z')) {
+                if(upper) {
+                    if(ch>='a' && ch<='z') {
+                        ch = (char)(ch-32);
+                    }
+                }
+                else{
+                    if(ch>='A' && ch<='Z') {
+                        ch = (char)(ch+32);
+                    }
+                }
+                result = result+ch;
+                upper = !upper;
+            } 
+             else{
+                result = result+ch;
+             }
+        }
+        System.out.print(result);
+    }
+}

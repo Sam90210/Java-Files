@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class wrapperClass{
+    public static void main(String[] args){
+        System.out.println();
+        Scanner sc = new Scanner(System.in);
+        String userInput = sc.nextLine();
+        int var1 = Integer.valueOf(sc.nextLine());
+        double var2 = Double.valueOf(sc.nextLine());
+        boolean var3 = Boolean.valueOf(sc.nextLine());
+        System.out.println("The user gave: "+var1);
+        System.out.println("The user gave: "+var2);
+        System.out.println("The user gave: "+var3);
+        
+    }
+}

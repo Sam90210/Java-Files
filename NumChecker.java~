@@ -1,0 +1,17 @@
+//task1
+import java.util.Scanner;
+public class NumChecker{
+    public static void main(String[] args){
+        evenChecker(sc.nextInt);
+    }
+    
+    public static int evenChecker(int num1){
+        
+        if(num1%2==0){
+            System.out.println("Even!!");
+        }
+        else{
+            System.out.println("Odd!!");
+        }
+    }
+}

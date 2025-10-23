@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class patternGen1_left_justified_Star_triangle{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number or rows:");
+        int row = sc.nextInt();
+        System.out.println("Enter the number or columns:");
+        int col = sc.nextInt();
+        for(int j =1; j<=row; j++){
+            for(int i=1; i<=col; i++){
+                System.out.print(" * ");
+            }
+            System.out.println();
+        }
+        int c = sc.nextInt();
+            
+        
+    }
+}

@@ -1,0 +1,75 @@
+None selected 
+
+Skip to content
+Using BRAC University Mail with screen readers
+in:sent 
+
+Conversations
+ 
+Program Policies
+Powered by Google
+Last account activity: 7 hours ago
+Details
+import java.util.Scanner;
+public class quest1{
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a positive integer number: ");
+        int posInt = sc.nextInt();
+        for(int d = 0; d<=posInt;d++){
+            if(d%5==0 && d%3==0){
+            System.out.println(d+" is divisble by 5 but not 3");
+            }
+        }
+    }
+}
+
+
+public class quest2{
+    public static void main(String[] args){
+        int sum =0;
+        for(int i=1; i<=600; i++){
+            if((i%7==0 || i%9==0) && i%63!=0){/*
+             * A number divisible by both 7 and 9 must be
+             * divisible by their Least Common Multiple (LCM)
+             * and the LCM of 7 and 9 is 7*9 = 63
+             Also put the or operation in bracket cause
+             accordint to precedence && operator operates before
+             than || operator. But bracket holds the top precedence 
+             and we need to determine the divsibility by 7 & 9 first
+             then cause || operation will work even if the both case
+             is true so we gotta check the divisibily by LCM later
+             it determines || operation in  brackets!!
+             */
+            sum = sum+i;
+            }
+        }
+        System.out.println("Summation: "+sum);
+    }
+}
+
+
+import java.util.Scanner;
+public class quest3{
+    public static void main(String[] args){
+    Scanner ac = new Scanner(System.in);
+    System.out.println("Enter the number of inputs you want to give:");
+    int intN = ac.nextInt();
+    int count1 =0;
+    int count2 =0;
+    for(int i=1; i<=intN; i++){
+        System.out.println("Enter the number "+i+": ");
+        int numb = ac.nextInt();
+        if(numb<0){
+            count1++;
+          }
+        else if(numb>=0){
+            count2++;
+          }
+       }
+    System.out.println(count2+" Non-negative Numbers");
+    System.out.println(count1+" Negative Numbers");
+    }
+}
+
+
