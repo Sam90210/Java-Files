@@ -1,0 +1,14 @@
+import java.util.Scanner;
+public class subsetChecker{
+    public static void main(String[] args){
+         Scanner sc = new Scanner(System.in);
+         System.out.println("Please enter the length of array 1:");
+         int length1 = sc.nextInt();
+         int[] arr1 = new int[length1];
+         
+         //Keeping array1's element
+         for(int i=0; i<length1; i++){
+             arr1[i] = sc.nextInt();
+         }
+    }
+}

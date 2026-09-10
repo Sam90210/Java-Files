@@ -1,0 +1,99 @@
+class ImaginaryNumber{
+    int realPart =0;
+    int imaginaryPart =0;
+    public String printNumber(){
+        return realPart+" + "+imaginaryPart+"i";
+    }
+}
+
+==================================================================
+
+class Assignment{
+    int tasks;
+    String difficulty;
+    boolean submission;
+    
+    public void printDetails(){
+        System.out.println("Number of tasks: "+tasks);
+        System.out.println("Difficulty level: "+difficulty);
+        System.out.println("Submission required: "+submission);
+    }
+    public String makeOptional(){
+        if(submission == true){
+            submission = !true;
+        return "Assignment will not require submission";
+        }
+        else
+            return "Submission is already not required!";
+    }
+}
+
+==================================================================
+
+class Employee{
+    String name;
+    double salary;
+    String designation;
+    
+    public void newEmployee(String n1){
+        name = n1;
+        salary = 30000.00;
+        designation = "Junior";
+    }
+    public void displayInfo(){
+        System.out.println("Employee Name: "+name);
+        System.out.println("Employee Salary: "+salary+" TK");
+        System.out.println("Employee Designation: "+designation);
+    }
+    public void calculateTax(){
+        if(salary>30000){
+            System.out.println(name+" Tax Amount: "+salary*0.1+" Tk");
+        }
+        if(salary>50000){
+            System.out.println(name+" Tax Amount: "+salary*0.3+" Tk");
+        }
+        else System.out.println("No need to pay tax!");
+        
+    }
+    public void promoteEmployee(String d){
+        designation = d;
+        if (d=="lead"){
+            salary+=50000;
+        }
+        if (d=="manager"){
+            salary+=75000;
+        }
+        System.out.println(name+" has been promoted to "+designation);
+        System.out.println("New Salary: "+(double)salary);
+        
+    }
+}
+
+==================================================================
+
+
+class MobilePhone{
+    int Cap;
+    String ConNam;
+    int CNum;
+        
+    public void setContactCapacity(int c){
+        cap = c;
+        
+    }
+    public void details(){
+        System.out.println("Total Contacts: "+cap);
+        public void addContact(String n, int no){
+            ConNam = n;
+            CNum = no;
+            System.out.println("The contact of "+ConNam+" is addded.");
+        }
+        System.out.println("Contact List: ");
+        System.out.println(ConNam+":"+CNum);
+    }
+    
+    public void makeCall(int call){
+        if(
+        System.out.println("Calling");
+    }
+}

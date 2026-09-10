@@ -1,0 +1,135 @@
+//TASK01
+
+class Cow extends Animal {
+     String name;
+
+     public Cow() {
+          super();
+          System.out.println("The cow says hello!");
+     }
+
+     public String getName() {
+          return this.name;
+     }
+
+     public void details() {
+          super.details();
+     }
+
+     public void updateSound(String snd) {
+          super.sound = snd;
+     }
+
+}
+
+==================================================
+
+//TASK02
+
+public class CheckingAccount extends Account {
+    double bal=0;
+    public static int count=0;
+    
+    public CheckingAccount(){
+        super(0.0);
+        count++;
+    }
+    
+    public CheckingAccount(double val){
+        super(val);
+        count++;
+    }
+    
+ 
+}
+
+
+==================================================
+
+//TASK03
+
+class Book extends Product{
+    
+    String ISBN;
+    String Pub;
+    public Book(int id, String title, int price, String ISBN, String Pub){
+        super(id, title, price);
+        this.ISBN=ISBN;
+        this.Pub=Pub;
+    }
+    
+    public String printDetail(){
+        return super.getIdTitlePrice()+"\nISBN: "+this.ISBN+" Publisher: "+this.Pub;
+    }
+}
+
+class CD extends Product{
+    
+    int dur;
+    String Band;
+    String genre;
+    public CD(int id, String title, int price, String Band, int dur, String genre){
+        super(id, title, price);
+        this.dur=dur;
+        this.Band=Band;
+        this.genre=genre;
+    }
+    
+    public String printDetail(){
+        return super.getIdTitlePrice()+"\nBand: "+this.Band+" Duration: "+this.dur+"\nGenre: "+this.genre;
+    }
+}
+
+=====================================================================================
+
+//TASK04
+
+class ComplexNumber extends RealNumber{
+    
+    double ip=0.0;
+    public ComplexNumber(){
+        
+    }
+    
+    public ComplexNumber(double rp, double ip){
+        super(rp);
+        this.ip=ip;
+    }
+    
+    public String details(){
+        return super.getReal()+"\nImaginaryPart: "+this.ip;
+    }
+}
+
+==================================================================
+
+//TASK05
+
+class CSEStudent extends Student {
+
+    String courses;
+    static int count = 0;
+
+    public CSEStudent(String n, int i) {
+        super(n, i);
+        count++;
+    }
+
+    public static void details() {
+        System.out.println(
+                "Total CSE Students: " + count + "\nAvailable Lab Based Courses:" + "\nCSE110 CSE111 CSE220 CSE221");
+
+    }
+
+    public void info() {
+        super.info();
+    }
+
+    public void addLabBasedCourse(String c) {
+        if (c.equals("CSE110")||c.equals("CSE111")||c.equals("CSE220")||c.equals("CSE221")) {
+            super.courses=super.courses +" "+ c;
+        } else {
+            System.out.println("It is not a lab based course!");
+        }
+    }
+}

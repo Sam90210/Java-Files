@@ -1,0 +1,131 @@
+//TASK01
+public class Product {
+     String pName;
+     int qutie;
+     public static String[] products = new String[3];
+     public static int[] quantity = new int[3];
+     static int count = 0;
+
+     public Product(String n, int i) {
+          pName = n;
+          qutie = i;
+
+          if(count<products.length) {
+               products[count] = pName;
+               quantity[count] = qutie;
+               count++;
+               System.out.println("Stored: " + pName);
+          }else{
+               System.out.println("Storage is full! Cannot add" + pName);
+          }
+     }
+
+     public static void displayProducts() {
+          System.out.println("=== Stored Products ===");
+          for (int i = 0; i < products.length; i++) {
+               System.out.println(products[i] + " - Qty: " + quantity[i]);
+          }
+     }
+
+     public static void buy(String n, int q) {
+          for(int i = 0; i < products.length; i++) {
+               if(n.equals(products[i])) {
+                    if (quantity[i] >= q) {
+                         quantity[i] -= q;
+                         System.out.println("Product Sold");
+                    }else{
+                         System.out.println("Quantity low");
+                    }
+                    return;
+               }
+          }
+          System.out.println("Product not found");
+     }
+
+}
+
+=============================================================================
+
+//TASK02
+public class Character{
+    int ID;
+    String nam;
+    String grp;
+    int HP;
+    
+    public static String strongestChar="None";
+    public static int kids=0;//public static int kids=0, teens=0, adults=0, totalChars=0;
+    public static int teens=0;
+    public static int Adults=0;
+    public static int totalChars=0;
+    public static int totalHP=0;
+    public static int strongestHP=0;
+    
+    public Character(String n, String p, int HP){
+        totalChars++;
+        this.ID=totalChars;
+        this.nam=n;
+        this.grp=p;
+        this.HP=HP;
+        totalHP+=HP;
+        
+        if(grp.equals("Kid")){
+            kids++;
+        }
+        else if(grp.equals("Teen")){
+            teens++;
+        }
+        else if(grp.equals("Adult")){
+            Adults++;
+        }
+        if(this.HP>strongestHP){
+            strongestHP=this.HP;
+            strongestChar=this.nam;
+        }
+    }
+    
+    public Character(String n, int HP){
+        totalChars++;
+        this.ID=totalChars;
+        this.nam=n;
+        this.HP=HP;
+        totalHP+=HP;
+        
+        if(this.HP>strongestHP){
+            strongestHP=this.HP;
+            strongestChar=this.nam;
+        }
+    }
+    
+    public void printDetails(){
+        System.out.println("ID:"+this.ID+", Name: "+this.nam);
+        System.out.println("Group:"+this.grp);
+        System.out.println("Health: "+HP);
+    }
+    
+    public static void printStats(){
+        double avgHP=0;
+        
+        if(totalChars>0){
+            avgHP=(double)totalHP/totalChars;
+        }
+        System.out.println("Total Characters: "+totalChars);
+        System.out.println("Kids: "+kids);
+        System.out.println("Teens: "+teens);
+        System.out.println("Adults: "+Adults);
+        System.out.println("Average Health: "+avgHP);
+        System.out.println("Strongest Character: "+strongestChar);
+        
+        if(!strongestChar.equals("None")){
+            System.out.println(strongestChar+" (Health "+strongestHP+")");
+        }
+    }
+}
+
+
+=====================================================================
+
+//TASK03
+
+
+

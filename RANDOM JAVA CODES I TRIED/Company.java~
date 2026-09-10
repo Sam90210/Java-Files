@@ -1,0 +1,57 @@
+class Company{
+    String cName = "ABC Company";
+    int eCount = 0;
+    Employee[] arr = new Employee[3];
+    
+    //Company Details
+    public void details(){
+        System.out.println("Company Name: "+cName);
+        System.out.println("Total Employees: "+eCount);
+        System.out.println("Fulltime Employees:");
+        for(int i; i<arr.length; i++){
+            if(arr[i].gTime().equals("Fulltime")){
+                System.out.println("Name: "+arr[i].gName()+", ID: "+arr[i].gID());
+            }
+        }
+        System.out.println("Part-time Employees:");
+        for(int i=0; i<arr.length; i++){
+            if(arr[i].gTime().equals("Part-Time")){
+                System.out.println("Name: "+arr[i].gName()+", ID: "+arr[i].gID());
+            }
+        }
+    }
+    
+    //Add Employee
+    public void addEmployee(Employee obj){
+        if(eCount == arr.length){
+            System.out.print("No more Vacancy");
+                return;
+        }
+        else{arr[eCount] = obj;
+        eCount++;
+        System.out.println(obj.gName()+" has joined the company");
+        }
+    }
+    
+    //Remove Employee
+    public void removeEmployee(Employee obj){
+        int idx = -1;
+        for(int i=0; i<eCount; i++){
+            if(arr[i]==obj){
+                idx=i;
+                break;
+            }
+        }
+        if(idx != -1){
+                for(int i =idx; i<eCount-1; i++){
+                    arr[i]=arr[i+1];
+                }
+                
+                arr[eCount-1] = null;
+                
+                eCount--;
+               System.out.println(obj.gName()+" has left the company");
+            }
+    }
+      
+}

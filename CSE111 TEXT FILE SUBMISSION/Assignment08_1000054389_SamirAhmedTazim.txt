@@ -1,0 +1,339 @@
+//TASK01
+ public class Butterfly extends Caterpillar {
+          
+     public Butterfly(String n, int i){
+          super(n, i);
+     }
+
+     @Override
+     public void transform(){
+          System.out.println("Caterpillar transforms into Butterfly");
+     }
+     
+     @Override
+     public void eat(int i){
+          energy=(i*5)-5;
+     }
+
+     @Override
+     public void showDetails(){
+          System.out.println("Food: " + food);
+          System.out.println("Age: " + age);
+          System.out.println("Energy: " + energy+" joules");
+
+     }
+
+}
+
+=================================================================================
+
+public class Moth extends Caterpillar{
+     
+     public Moth(String n, int i){
+          super(n, i);
+     }
+
+     @Override
+     public void transform(){
+          System.out.println("Caterpillar transforms into Moth");
+     }
+
+     @Override
+     public void eat(int i){
+          energy=(i*2.5)-2.5;
+     }
+
+     @Override
+     public void showDetails(){
+          System.out.println("Food: " + food);
+          System.out.println("Age: " + age);
+          System.out.println("Energy: " + energy+" joules");
+
+     }
+}
+
+
+
+//TASK02
+
+public class Concert {
+     
+     String Vname;
+     String[] aName = new String[2];
+     String time;
+     static int count;
+     int soldTs;
+     static int totalT;
+     public Concert(String Vname, String time){
+          this.Vname=Vname;
+          this.time=time;
+     }
+
+     public void addArtist(String Name){
+          if(count<2){
+               aName[count]=Name;//যদি বার বার মেথড কল করে নাম অ্যাড করা হয় তাহলে,
+               count++;          //if Statement দিয়ে array তে artist name রাখা। 
+          }
+     //আর যদি *একেবারে* অনেকগুলা অ্যাড করা লাগে তাহলে লুপ ব্যাবহার করা   
+     }
+     public void buyTicket(){
+
+     }
+
+     public void buyTicket(String zone){
+          System.out.println("Total price: 1000");
+          soldTs++;
+          totalT++;
+     }
+
+     public void buyTicket(String zone, int qnty){
+          System.out.println("Total price: "+500*qnty);
+          soldTs=qnty;
+          totalT+=qnty;
+     }
+
+     public static void showTotalTicketsSold(){
+          System.out.println("Total tickets sold (all venues): "+totalT);
+     }
+
+     public void showDetails(){ 
+          System.out.println("Venue: "+Vname);
+          System.out.println("Showtime: "+time);
+          System.out.println("Artists:");
+
+          for(int i=0; i<count; i++){
+               System.out.println("-"+aName[i]);
+          }
+
+          System.out.println("Tickets sold in this concert: "+soldTs);
+     }
+}
+
+=================================================================================
+
+public class VIPConcert extends Concert {
+     
+     
+     String time;
+     int soldTs;
+     public VIPConcert(String ven, String time){
+          super(ven,time);
+     }
+     
+     @Override
+     public void buyTicket(){
+          soldTs++;
+          totalT++;
+          System.out.println("Tickets sold in this concert: "+soldTs);
+     }
+
+     public void addArtist(String artist){
+          
+     }
+
+     @Override
+     public void showDetails(){ 
+          System.out.println("Venue: "+Vname);
+          System.out.println("Showtime: "+time);
+          System.out.println("Artist: \n-Atif Aslam");
+          System.out.println("Tickets sold in this concert: "+soldTs);
+     }
+
+}
+
+
+//TASK03
+public class BikeDriver extends GenericDriver{
+    
+    String type;
+    static String[] restrictedAreas = new String[10];
+    static int count;
+    
+    public BikeDriver(String name, String type){
+        super(name);
+        this.type=type;
+    }
+    
+    public static void restrictedAreas(String rArea){
+        count++;
+        for(int i=0; i<count; i++){
+            restrictedAreas[i]=rArea;
+        }
+    }
+    
+    public void fightRestriction(String[] rAreas){
+        for(int i=0; i<rAreas.length; i++){
+            String area = rAreas[i];
+            boolean restic =false;
+            for(int j=0; j<count; j++){
+                if(restrictedAreas[j].equals(area)){
+                    restic = true;
+                }
+            }
+            
+            if(restic){
+                System.out.println(getName()+" can not enter "+area);
+            }
+            else{
+                System.out.println(getName()+" can enter "+area);
+            }
+        }
+    }
+    
+    @Override
+    public String acceptRide(boolean tf){
+        String s = super.acceptRide(tf);
+        s+="\n"+getName()+"'s driver profile is "+this.type;
+        return s;
+    }
+    
+    @Override
+    public String toString(){
+        return super.getName()+"'s driver profile is "+this.type;
+    }
+    
+    @Override
+    public void hasSafetyTraining(){
+        super.hasSafetyTraining();
+        System.out.println(super.getName()+"'s driver profile is "+this.type);
+    }
+    
+}
+
+====================================================================================
+
+public class CarDriver extends GenericDriver{
+    
+    String type;
+    static String[] restrictedAreas = new String[10];
+    static int count;
+    
+    public CarDriver(String name){
+        super(name);
+        this.type = "Premium";
+    }
+    
+    public static void restrictedAreas(String rArea){
+        count++;
+        for(int i=0; i<count; i++){
+            restrictedAreas[i]=rArea;
+        }
+    }
+    
+    public void fightRestriction(String[] rAreas){
+        for(int i=0; i<rAreas.length; i++){
+            String area = rAreas[i];
+            boolean restic =false;
+            for(int j=0; j<restrictedAreas.length; j++){
+                if(restrictedAreas[j].equals(area)){
+                    restic=true;
+                }
+            }
+            
+            if(restic){
+                System.out.println(getName()+" can not enter "+area);
+            }
+            else{
+                System.out.println(getName()+" can enter "+area);
+            }
+        }
+    }
+    
+    @Override
+    public String acceptRide(boolean tf){
+        String s = super.acceptRide(tf);
+        s+="\n"+getName()+"'s driver profile is "+this.type;
+        return s;
+    }
+    
+    @Override
+    public String toString(){
+        return super.getName()+"'s driver profile is "+this.type;
+    }
+    
+    @Override
+    public void hasSafetyTraining(){
+        super.hasSafetyTraining();
+        System.out.println(super.getName()+"'s driver profile is "+this.type);
+    }
+    
+}
+
+
+//TASK04
+public class CinemexTicket extends MovieTicket{
+    String genre;
+    String seatType;
+    boolean isPaid=false;
+    String ticketId;
+    static int totalTickets=0;
+    
+    public CinemexTicket(String movie, String showtime, String genre, String date){
+        super(movie, date, showtime, 0.0);
+        this.genre = genre;
+        this.seatType = "Regular";
+        this.isPaid=false;
+        totalTickets++;
+        this.ticketId = movie+"-"+seatType.charAt(0)+"-"+totalTickets;
+    }
+    public CinemexTicket(String movie, String showtime, String genre, String date, String seatType){
+        super(movie, date, showtime, 0.0);
+        this.genre = genre;
+        this.seatType = seatType;
+        this.isPaid = false;
+        totalTickets++;
+        this.ticketId = movie+"-"+seatType.charAt(0)+"-"+totalTickets;
+    }
+    
+    public void calculateTicketPrice(){
+        double basePrice = 0.0;
+        for (int i = 0; i<seatTypes.length; i++){
+            if (seatTypes[i].equals(seatType)){
+                basePrice = seatPrices[i];
+                break;
+            }
+        }
+        String[] timeParts = showtime.split(":");
+        int hour = Integer.parseInt(timeParts[0]);
+        int minute = Integer.parseInt(timeParts[1]);
+        int totalMinutes = hour * 60 + minute;
+        if (totalMinutes >= 18*60 && totalMinutes <= 23*60) {
+            basePrice += basePrice * nightShowCharge / 100.0;
+        }
+        setPrice(basePrice);
+        System.out.println("Ticket price is calculated successfully.");
+    }
+    
+    public String confirmPayment(){
+        if(isPaid){
+            return "Ticket price is already paid!";
+        }
+        else{
+            isPaid = true;
+            return "Payment Successful.";
+        }
+    }
+    
+    public static int getTotalTickets(){
+        return totalTickets;
+    }
+    
+    @Override
+    public String toString(){
+        String status;
+        if(isPaid){
+            status ="Paid";
+        }
+        else{
+            status ="Not Paid";
+        }
+        return "Ticket ID:"+ticketId+ "\n" +
+            "Movie: "+getMovie()+     "\n" +
+            "Showtime: "+showtime +   "\n" +
+            "Date: "+date+            "\n" +
+            "Genre: "+genre+          "\n" +
+            "Seat Type: "+seatType +  "\n" +
+            "Price(TK): "+getPrice()+ "\n" +
+            "Status: "+status;
+    }
+}

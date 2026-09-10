@@ -1,0 +1,39 @@
+Using Command Prompt to free delete temporary files Windows 11 is a quick and effective method, especially if you prefer command-line tools or want to automate cleanup tasks.
+
+Key Commands for Cleaning Temporary Files Windows 11
+
+1. Delete Temporary Files in Windows Temp Folders
+Commands:
+
+del /q /f /s %TEMP%\*
+del /q /f /s C:\Windows\Temp\*
+
+Explanation:
+
+- %TEMP% is an environment variable pointing to your current user’s temporary folder.
+- C:\Windows\Temp is the system-wide temporary folder.
+/q is quiet mode (no prompts).
+/f forces deletion of read-only files.
+/s deletes all files in subdirectories.
+
+How:
+Open Command Prompt as Administrator.
+Enter these commands to delete temporary files.
+
+
+2. Clear the Recycle Bin via Command Prompt
+
+Command:
+
+rd /s /q C:\$Recycle.bin
+
+
+3. Use cleanmgr for Disk Cleanup
+You can run the built-in Disk Cleanup utility silently via command line:
+
+cleanmgr /sagerun:1
+
+Setup:
+
+First, configure cleanup options with cleanmgr /sageset:1, selecting what to delete.
+Then, run the above command to perform cleanup automatically.

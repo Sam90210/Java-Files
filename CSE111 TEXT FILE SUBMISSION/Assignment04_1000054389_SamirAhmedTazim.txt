@@ -1,0 +1,55 @@
+class Player{
+    
+    String pname;
+    int hP;
+    String vname;
+    int vHp;
+    
+    public Player(String n, int i){
+        name=n;
+        hP=i;
+        
+        System.out.println(name+" joined the game");
+        System.out.println("HP: "+hP):
+    }
+    
+    public void viewInfo(){
+        System.out.print("Player Name: "+name);
+        System.out.print("Current HP: "+hP);
+        if(vHp<=hP){
+             System.out.print("Defeated: ");
+              System.out.print(vname);
+        }
+    }
+    
+    public void defeatVillain(String n, int i){
+        vname=n;
+        vHp=i;
+        
+        if(vHp>hP){
+            System.out.print("Failed to defeat: "+vname);
+        }
+        
+        else if(vHp<=hP){
+            System.out.print("defeated "+vname);
+        }
+    }
+    
+   
+    
+}
+
+=============================================
+
+class Student{
+    int id;
+    double cg;
+    String cCode;
+    String [] arr = new String[4];
+    int cCount =0;
+    
+    public Student(int i){
+        id=i;
+        System.out.println("A student with ID "+i+" has been created");
+    }
+}

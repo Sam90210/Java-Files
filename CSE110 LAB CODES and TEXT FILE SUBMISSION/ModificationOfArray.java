@@ -1,0 +1,34 @@
+//TASK1
+import java.util.Scanner;
+public class ModificationOfArray{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the slots of array:");
+        
+        int slots = sc.nextInt();
+        int [] array = new int[slots];
+        
+        System.out.println("Enter the values for the array:");
+        
+        for(int i=0; i<array.length; i++){
+            array[i] = sc.nextInt();
+        }
+        System.out.println("Original array;");
+        for(int i=0; i<array.length; i++){
+            System.out.println(array[i]+" ");
+        }
+        
+        System.out.println("After modifying:");
+        for(int i=0; i<array.length; i++){
+            if(array[i]<0){
+                System.out.print("0 ");
+            }
+            else if(array[i]>0){
+                System.out.print("1 ");
+            }
+            else if(array[i]==0){
+                System.out.print(array[i]+" ");
+            }
+        }
+    }
+}

@@ -1,0 +1,180 @@
+
+import java.util.Scanner;
+public class quest1{
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a positive integer number: ");
+        int posInt = sc.nextInt();
+        for(int d = 0; d<=posInt;d++){
+            if(d%5==0 && d%3==0){
+            System.out.println(d+" is divisble by 5 but not 3");
+            }
+        }
+    }
+}
+
+
+public class quest2{
+    public static void main(String[] args){
+        int sum =0;
+        for(int i=1; i<=600; i++){
+            if((i%7==0 || i%9==0) && i%63!=0){/*
+             * A number divisible by both 7 and 9 must be
+             * divisible by their Least Common Multiple (LCM)
+             * and the LCM of 7 and 9 is 7*9 = 63
+             Also put the or operation in bracket cause
+             accordint to precedence && operator operates before
+             than || operator. But bracket holds the top precedence 
+             and we need to determine the divsibility by 7 & 9 first
+             then cause || operation will work even if the both case
+             is true so we gotta check the divisibily by LCM later
+             it determines || operation in  brackets!!
+             */
+            sum = sum+i;
+            }
+        }
+        System.out.println("Summation: "+sum);
+    }
+}
+
+
+import java.util.Scanner;
+public class quest3{
+    public static void main(String[] args){
+    Scanner ac = new Scanner(System.in);
+    System.out.println("Enter the number of inputs you want to give:");
+    int intN = ac.nextInt();
+    int count1 =0;
+    int count2 =0;
+    for(int i=1; i<=intN; i++){
+        System.out.println("Enter the number "+i+": ");
+        int numb = ac.nextInt();
+        if(numb<0){
+            count1++;
+          }
+        else if(numb>=0){
+            count2++;
+          }
+       }
+    System.out.println(count2+" Non-negative Numbers");
+    System.out.println(count1+" Negative Numbers");
+    }
+}
+
+
+import java.util.Scanner;
+public class quest4{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input the number of terms you want the sum of: ");
+        int oddT = sc.nextInt();
+        if(oddT<0){
+        System.out.println("Enter a positive number of terms!: ");
+        }
+        else{
+            int sum =0;
+            for(int i=1; i<=oddT; i++){
+            int oddN = 2*i-1;
+            sum+=oddN;
+        }
+            System.out.println("The sum of odd natural numbers: "+sum);// i cant print sum oustide the else block
+        }                    
+    }
+}
+
+
+import java.util.Scanner;
+public class quest5{
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    int sum =0, count =1;
+         while(count<=10){
+         System.out.println("Enter an integer number:");
+         int numb = sc.nextInt();
+         sum+= numb;
+         System.out.println("Sum: "+sum);
+         count++;
+         }
+    }
+}
+
+
+
+//A divisor is a number that divides another number without leaving a remainder
+//gotta pull common divisors here
+import java.util.Scanner;
+public class quest6{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter an integer number:");
+        int no = sc.nextInt();
+        for(int i=1; i<=no; i++){
+            if(no%i==0){
+                System.out.println(i+" is a divisor of "+no);
+            }
+        }
+    }
+}
+
+
+import java.util.Scanner;
+public class quest7{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter an intger value:");
+        int no = sc.nextInt();
+        if(no>0){
+            for(;no>0;no/=10){        
+            int one = no%10;
+            System.out.print(one);
+            if(no/10>0){
+            System.out.print(", ");
+            }
+            }    
+        }
+        else{
+            System.out.println("Enter Positive number!");
+        }
+    }
+}
+
+
+
+import java.util.Scanner;
+public class quest9{
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int num = sc.nextInt();
+        int ct = 0;
+        if(num > 1){
+            for(int i = 1; i <= num; i++) {
+            if(num % i == 0) {
+                    ct++;
+            }
+            }
+        }
+        else{
+            ct =0;
+        }
+        if(ct == 2) {
+        System.out.println("Prime number: " + num);
+        }
+        else {
+        System.out.println(num + " is not a prime number");
+        }
+        int sum = 0;
+        for(int i = 1; i<num; i++) {
+        if(num % i == 0) {
+                sum += i;
+        }
+        }
+        if(sum==num && num>0){
+            System.out.println("Perfect number: "+num);
+        }
+        else {
+        System.out.println(num + " is not a perfect number");
+        }
+        }
+    }
+

@@ -1,0 +1,123 @@
+//TASK01
+class CSEStudent extends Student{
+
+  String mesg ="I want to transfer to CSE";
+
+  public String shout(){
+
+  return mesg;
+
+  }
+}
+
+
+class CSE111Student extends CSEStudent{
+
+  String mesg ="I love Java Programming";
+
+  public String shout(){
+
+  return mseg;
+
+  }
+}
+
+================================================
+
+//TASK02
+public class PlatinumCard extends CreditCard {
+
+     public PlatinumCard(String holder, String acNo){
+          super(holder, acNo, 100);
+     }
+     
+     public void spendCash(int a){
+          System.out.println("Previous Reward Points: " + rewardPoints);
+          rewardPoints=rewardPoints+(a/100)*2;
+           System.out.println("Reward points after spending "+a+" taka: "+rewardPoints);
+     }
+}
+
+
+public class SignatureCard extends CreditCard{
+     
+     public SignatureCard(String holder, String acNo){
+          super(holder, acNo, 200);
+     }
+     
+     public void spendCash(int a){
+          System.out.println("Previous Reward Points: " + rewardPoints);
+          rewardPoints=rewardPoints+(a/100)*4;
+          System.out.println("Reward points after spending "+a+" taka: "+rewardPoints);
+     }
+
+     public void cardDetails(){
+
+          super.cardDetails();
+          System.out.println("Possible Number of Companions for Lounges: 5");
+
+     }
+}
+
+//TASK03
+public class Bike extends Vehicle{
+     
+     boolean flag;
+     String model;
+
+     public Bike(String b, String m, int yr, int o, boolean tf){
+          super(b, yr);
+          this.model=m;
+          this.flag=tf;
+          this.setWheels(o);
+     }
+
+     public void doAWheelie(){
+
+          if(getWheels()==2){
+               System.out.println(getBrand()+":"+this.model+" is doing Wheelie!!");
+          }
+          else{
+               System.out.println("Wheelie Failed. "+this.getBrand()+":"+this.model+" has SideCar");
+          }
+          
+     }
+
+     @Override 
+     public String toString(){
+          return "Bike "+super.toString()+", Model: "+this.model+", SideCar: "+this.flag;
+
+     }
+
+}
+
+public class Car extends Vehicle{
+
+     String model;
+     int door;
+     boolean auto;
+
+     public Car(String b, String m, int yr, int cap, int o, boolean tf){
+          super(b, yr);
+          this.model=m;
+          this.door=cap;
+          this.auto=tf;
+          setWheels(o);
+     }
+
+     public void startAutoPilot(){
+          if (this.auto==true) {
+            System.out.println(getBrand()+":"+this.model+"s AutoPilot Started");
+        }
+        else {
+            System.out.println(getBrand()+":"+this.model+" has NO AutoPilot");
+        }
+     }
+
+     @Override 
+     public String toString(){
+          return "Car "+super.toString()+", Model: "+this.model+", Doors: "+this.door+", AI: "+this.auto;
+    }
+
+     
+}

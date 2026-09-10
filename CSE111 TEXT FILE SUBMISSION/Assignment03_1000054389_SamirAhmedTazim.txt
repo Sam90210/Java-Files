@@ -1,0 +1,126 @@
+//TASK1
+class Toy{
+    int p;
+    String name;
+    public Toy(String n, int pr){
+        this.name = n;
+        this.p = pr;
+        System.out.println("A new toy has been made ");
+    }
+    public void updatePrice(int pr){
+        this.p = pr;
+    }
+    public void updateName(String n){
+        System.out.println("Changing old name: "+ this.name); 
+        this.name = n;   
+        System.out.println("new name: "+ this.name);
+    }
+    public void showPrice(){
+        System.out.println("price: "+ this.p +"Taka");
+    }
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//TASK2
+
+ class Cart {
+    String[] items = new String[3];
+    double[] prices = new double[3];
+    int cnt = 0;
+    int CartNo = 0;
+    double discount = 0.0;
+
+    public void create_cart(int num){
+        this.CartNo = num;
+        
+    }
+
+    public void addItem(String n, double p){
+        if(cnt<3){
+            this.items[cnt] = n;
+            this.prices[cnt] = p;
+            cnt++;
+            System.out.println(n + " added to cart "+ this.CartNo);
+            
+            System.out.println("You have "+cnt+" item(s) in our cart now.");
+        } 
+
+    }
+
+    public void addItem(double p, String n){
+        if(cnt<3){
+            this.items[cnt] = n;
+            this.prices[cnt] = p;
+            cnt++;
+            System.out.println(n + " added to cart "+ this.CartNo);
+            
+            System.out.println("You have "+cnt+" item(s) in our cart now.");
+        } 
+
+    }
+
+    public void cartDetails(){
+        System.out.println("Your cart(c"+ this.CartNo + "):");
+
+        double total =0.0;
+        for(int j=0; j<cnt; j++){
+            System.out.println( this.items[j] + " - "+ this.prices[j]);
+            total = total+prices[j];
+        }
+        System.out.println("Discount Applied: "+ discount+ "%");
+        System.out.println("Total Price: "+ total);
+    }
+
+    public void giveDiscount(int d){
+        this.discount = d;
+
+        for(int j=0; j<cnt; j++){
+            this.prices[j] = this.prices[j] - (this.prices[j]*d/(double)100);
+        }
+    }
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//TASK3
+
+class Reader {
+    String name;
+    String[] books;
+    int capacity;
+    int count;
+
+    public Reader(String n){
+        this.name = n;
+        this.capacity = 2;
+        this.books = new String[capacity];
+        this.count = 0;
+        System.out.println("A new reader has been created");
+    }
+
+    public Reader(String n, int c){
+        this.name = n;
+        this.capacity = c;
+        this.books = new String[capacity];
+        this.count = 0;
+        System.out.println("A new reader has been created");
+    }
+
+    public void addBook(String b){
+        if(count<capacity){
+            this.books[count] = b;
+            count++;
+            
+        }else{
+            System.out.println("No more capacity");
+        }
+    }
+
+    public void readerInfo(){
+        System.out.println(" name: "+ this.name);
+        System.out.println(" capacity: "+ this.capacity);
+        System.out.println(" books: ");
+    }
+}
+

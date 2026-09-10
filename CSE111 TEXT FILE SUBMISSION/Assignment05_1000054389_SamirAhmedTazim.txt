@@ -1,0 +1,325 @@
+//TASK1
+public class Employee1{
+    private String eName;
+    private int id;
+    private String wTime;
+    
+    
+    public Employee1(){
+        System.out.println("A default employee has been created");
+    }
+    
+    public Employee1(String n, int i, String t){
+        this.eName=n;
+        this.id=i;
+        this.wTime=t;
+    }
+    
+    
+    
+    public String gName(){
+        return eName;
+    }
+    
+    public int gID(){
+        return id;
+    }
+    
+    public String gTime(){
+        return wTime;
+    }
+}
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+class Company{
+    String cName = "ABC Company";
+    int eCount = 0;
+    Employee1[] arr = new Employee1[3];
+    
+    //Company Details
+    public void details(){
+        System.out.println("Company Name: "+cName);
+        System.out.println("Total Employees: "+eCount);
+        System.out.println("Fulltime Employees:");
+        for(int i=0; i<eCount; i++){
+            if(arr[i].gTime().equals("Fulltime")){
+                System.out.println("Name: "+arr[i].gName()+", ID: "+arr[i].gID());
+            }
+        }
+        System.out.println("Part-time Employees:");
+        for(int i=0; i<eCount; i++){
+            if(arr[i].gTime().equals("Part-time")){
+                System.out.println("Name: "+arr[i].gName()+", ID: "+arr[i].gID());
+            }
+        }
+    }
+    
+    //Add Employee
+    public void addEmployee(Employee1 obj){
+        if(eCount == arr.length){
+            System.out.print("No more Vacancy");
+                return;
+        }
+        else{arr[eCount] = obj;
+        eCount++;
+        System.out.println(obj.gName()+" has joined the company");
+        }
+    }
+    
+    //Remove Employee
+    public void removeEmployee(Employee1 obj){
+        int idx = -1;
+        for(int i=0; i<eCount; i++){
+            if(arr[i]==obj){
+                idx=i;
+                break;
+            }
+        }
+        if(idx != -1){
+                for(int i =idx; i<eCount-1; i++){
+                    arr[i]=arr[i+1];
+                }
+                
+                arr[eCount-1] = null;
+                
+                eCount--;
+               System.out.println(obj.gName()+" has left the company");
+            }
+    }
+      
+}
+
+======================================================================
+
+
+//TASK2
+
+class Student{
+    private int id;
+    public String nam;
+    public double cg;
+
+    public Student(String n, int i, double c){
+        this.id=i;
+        this.nam=n;
+        this.cg=c;
+    }
+
+    public void setId(int i){
+        id=i;
+    }
+
+    public int getID(){
+        return id;
+    }
+}
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+public class Department {
+    String dNam;
+    int noSt;
+    Student[] stds = new Student[5];
+    int sCount=0;
+    
+    public Department(String n){
+        dNam=n;
+    }
+    
+    public void addStudent(Student o1, Student o2, Student o3){
+        addStudent(o1);
+        addStudent(o2);
+        addStudent(o3);
+        
+    }
+    
+    public void addStudent(Student o){
+
+        for(int i=0; i<sCount; i++){
+            if(stds[i].getID() == o.getID()){
+                System.out.println("Student with the same ID already exists, Please try with another ID" );
+                
+            }
+        }
+        
+        stds[sCount]=o;
+        sCount++;
+        System.out.println("Welcome to "+dNam+" department, "+o.nam);
+    }
+    
+    public void findStudent(int ID){
+        if(ID<0){
+            System.out.println("Student with this ID doesn't exist, Please give a valid ID");
+        }
+        
+        for(int i=0; i<sCount; i++){
+            if(stds[i].getID() == ID){
+                System.out.println("Student Info:");
+                System.out.println("Student Name: "+ stds[i].nam);
+                System.out.println("ID: "+ stds[i].getID());
+                System.out.println("CGPA: "+stds[i].cg);
+            }
+        }
+        
+    }
+
+    public void details(){
+        System.out.println("Department name: "+dNam);
+        System.out.println("Number of Students: "+sCount);
+        System.out.println("Details of the students:");
+
+        for(int i=0; i<sCount; i++){
+            System.out.println("Student Name: "+stds[i].nam+", ID:"+stds[i].getID()+", CGPA:"+stds[i].cg);
+        }
+    }
+}
+
+===================================================
+
+//TASK#3
+
+public class Cargo {
+    private String nam;
+    private int wt;
+
+    public Cargo(String nam, int wt){
+        this.nam=nam;
+        this.wt=wt;
+    }
+
+    public int getWt(){
+        return wt;
+    }
+
+    public String getNam(){
+        return nam;
+    }
+}
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+public class Spaceship {
+    String SpName;
+    int SpCapacity;
+    int wtCount=0;
+    public Spaceship(String SpName, int SpCapacity){
+        this.SpName=SpName;
+        this.SpCapacity=SpCapacity;
+    }
+
+    public void loadCargo(Cargo obj){
+        if(obj.getWt()+wtCount>SpCapacity){
+            System.out.println("Warning: Unable to load"+obj.getNam()+
+            " inside "+SpName+". Exceeds capacity by "+
+            ((obj.getWt()+wtCount)-SpCapacity));
+        }
+        if(obj.getWt()+wtCount<=SpCapacity){
+            wtCount+=obj.getWt();
+        }
+    }
+
+    public void displayDetails(){
+        System.out.println("Spaceship Name: "+SpName);
+        System.out.println("Capacity: "+SpCapacity);
+        System.out.println("Current Cargo Weight :"+wtCount);
+    }
+}
+
+=======================================================
+
+//TASK#4
+
+public class UberEatsUser {
+    private String uName;
+    private String uAddrs;
+
+
+    public UberEatsUser(String uName){
+        this.uName=uName;
+    }
+
+    public UberEatsUser(String uName, String uAddrs){
+        this.uName=uName;
+        this.uAddrs=uAddrs;
+    }
+
+    public void updateLocation(String uAddrs){  
+        if(uAddrs.equals(null)){
+            this.uAddrs=uAddrs;
+            System.out.println("Update Successful!");
+        }
+        else{
+            System.out.println("We already have your location.");
+            System.out.println("Please place an order!");
+        }
+    }
+
+    public String getName(){
+        return uName;
+    }
+
+    public String getAddrs(){
+        return uAddrs;
+    }
+}
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+public class Restaurant {
+     String rName;
+     String rAddrs;
+     UberEatsUser[] orders = new UberEatsUser[4];
+     int count=0;
+
+     public Restaurant(String rName, String rAddrs){
+          this.rName=rName;
+          this.rAddrs=rAddrs;
+     }
+
+     public void takeOrder(UberEatsUser user){
+          if(user.getAddrs()==null){
+               System.out.println("Location : Unknown. Please update your location information!");
+          }
+
+          for (int i = 0; i < count; i++) {
+            if (orders[i]==user) {
+                System.out.println("You already have a pending order!");
+                return;
+            }
+           }
+
+          if (count >= 3) {
+            System.out.println("We are really busy right now.");
+            System.out.println("Please order after some time.");
+            System.out.println("Thank you!");
+            return;
+          }
+
+          orders[count] = user;
+          count++;
+
+          System.out.println("Your order has been added!");
+          
+     }
+
+     public void completeOrders() {
+
+        if(count==0) {
+            System.out.println("No pending orders at the moment.");
+            return;
+        }
+
+        System.out.println("Showing " + rName + "'s orders:");
+
+        for(int i=0; i < count; i++) {
+            System.out.println("Order by "+orders[i].getName()+" at "+orders[i].getAddrs()+" completed");
+
+            orders[i] = null;
+          }
+
+        count = 0;
+    }
+
+     
+}

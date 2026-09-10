@@ -1,0 +1,111 @@
+import java.util.Scanner;
+public class PrimeNumbersBetween{
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter 2 integer values respectively:");
+        int input1 = scan.nextInt();
+        int input2 = scan.nextInt();
+        if (input1 == 0 && input2 ==1 || input1 == 1 && input2 ==0 || input1%2==0 )
+        System.out.println("This are not prime numbers");
+        
+        int c = 0;
+        
+        if(input1>input2){
+            System.out.println("The first number must be smaller than the second one!");
+        }
+        for(int i=input1; i<=input2; i++){
+            if(i<2) 
+                continue;
+            int j;
+            for(j=2; j<=i; j++){
+                if(i%j==0){
+                    break;
+                }
+            }
+            if(j==i){c++;}
+        }
+        
+        System.out.println("There are "+c+" prime numbers between "+input1+" and "+input2+".");
+        
+        
+        scan.close();
+        
+    }
+}
+
+
+============================================================================================================================
+
+
+import java.util.Scanner;
+public class PreSmolAlphabet{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String random = sc.nextLine();
+        for(int i=0; i<random.length (); i++){
+            char c = random.charAt(i);
+            if(c=='a'){
+                System.out.print("z");
+            }
+            else{
+                System.out.print((char)(c-1));
+            }
+        }
+    }
+}
+
+
+===========================================================================================================================
+
+
+import java.util.Scanner;
+public class ModeChecking{
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the number of inputs you want to give:");
+        int nTimes = scan.nextInt();
+        int[] arr = new int[nTimes];
+        
+        for(int i=0; i<nTimes; i++){
+            arr[i] = scan.nextInt();
+        }
+        
+        for (int i=0; i<nTimes; i++){
+            int j;
+            for(j=0; j<nTimes; j++){
+                if(arr[i]==arr[j]){
+                    break;
+                }
+            }
+            if(j!=i){
+                continue;
+            }
+            int c = 0;
+            for(j=0; j<nTimes; j++){
+                if(arr[i]==arr[j]){
+                    c++;
+                }
+            }
+            System.out.println(arr[i]+" - "+c+" times");
+        }
+        
+    }
+}
+
+
+===========================================================================================================================
+
+class Course{
+    String courseCode;
+    String courseName;
+    int credit;
+}
+
+
+============================================================================================================================
+
+class CSECourse{
+    String courseCode = "CSE111");
+    String courseName = " Programming Language II";
+    int credit = 3; 
+}
